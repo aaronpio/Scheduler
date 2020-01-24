@@ -36,6 +36,8 @@ const Appointment = props => {
   };
 
   const deleteFunction = () => {
+    //transition("CONFIRM");
+
     transition("DELETING");
 
     props.cancelInterview(props.id).then(() => {
