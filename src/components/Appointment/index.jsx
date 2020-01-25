@@ -43,7 +43,7 @@ const Appointment = props => {
       .catch(error => transition(ERROR_SAVE, true));
   };
 
-  const onEdit = (name, interview) => {
+  const onEdit = () => {
     transition("EDIT");
   };
 
