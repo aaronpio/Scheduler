@@ -2,7 +2,6 @@ export const SET_DAY = "SET_DAY";
 export const SET_DAYS = "SET_DAYS";
 export const SET_APPOINTMENTS = "SET_APPOINTMENTS";
 export const SET_INTERVIEWERS = "SET_INTERVIEWERS";
-// export const SET_SPOTS = "SET_SPOTS";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -19,10 +18,6 @@ function reducer(state, action) {
       console.log("action set appointments", action);
       return { ...state, appointments: action.value };
     }
-    // case SET_SPOTS: {
-    //   console.log("action set spots: ", action);
-    //   return {};
-    // }
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`

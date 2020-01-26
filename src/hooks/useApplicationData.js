@@ -51,11 +51,20 @@ const useApplicationData = () => {
       };
 
       setAppointments(appointments);
+      Axios.get("http://localhost:8001/api/days").then(res =>
+        setDays(res.data)
+      );
     });
   };
 
   const cancelInterview = id => {
-    return Axios.delete(`http://localhost:8001/api/appointments/${id}`);
+    return Axios.delete(`http://localhost:8001/api/appointments/${id}`).then(
+      () => {
+        Axios.get("http://localhost:8001/api/days").then(res =>
+          setDays(res.data)
+        );
+      }
+    );
   };
 
   return { state, setDay, bookInterview, cancelInterview };
