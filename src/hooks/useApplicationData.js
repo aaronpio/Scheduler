@@ -26,9 +26,9 @@ const useApplicationData = () => {
 
   useEffect(() => {
     Promise.all([
-      Axios.get("http://localhost:8001/api/days"),
-      Axios.get("http://localhost:8001/api/appointments"),
-      Axios.get("http://localhost:8001/api/interviewers")
+      Axios.get("/api/days"),
+      Axios.get("/api/appointments"),
+      Axios.get("/api/interviewers")
     ]).then(all => {
       setDays(all[0].data);
       setInterviewers(all[2].data);
@@ -37,7 +37,7 @@ const useApplicationData = () => {
   }, []);
 
   const bookInterview = (id, interview) => {
-    return Axios.put(`http://localhost:8001/api/appointments/${id}`, {
+    return Axios.put(`/api/appointments/${id}`, {
       interview
     }).then(() => {
       const appointment = {
@@ -51,20 +51,14 @@ const useApplicationData = () => {
       };
 
       setAppointments(appointments);
-      Axios.get("http://localhost:8001/api/days").then(res =>
-        setDays(res.data)
-      );
+      Axios.get("/api/days").then(res => setDays(res.data));
     });
   };
 
   const cancelInterview = id => {
-    return Axios.delete(`http://localhost:8001/api/appointments/${id}`).then(
-      () => {
-        Axios.get("http://localhost:8001/api/days").then(res =>
-          setDays(res.data)
-        );
-      }
-    );
+    return Axios.delete(`/api/appointments/${id}`).then(() => {
+      Axios.get("/api/days").then(res => setDays(res.data));
+    });
   };
 
   return { state, setDay, bookInterview, cancelInterview };
