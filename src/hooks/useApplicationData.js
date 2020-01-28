@@ -7,7 +7,7 @@ import reducer, {
   SET_DAYS,
   SET_APPOINTMENTS,
   SET_INTERVIEWERS
-} from "../reducers/appReducer";
+} from "../reducers/application";
 
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, {
