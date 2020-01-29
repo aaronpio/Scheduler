@@ -58,6 +58,7 @@ const useApplicationData = () => {
   const cancelInterview = id => {
     return Axios.delete(`/api/appointments/${id}`).then(() => {
       Axios.get("/api/days").then(res => setDays(res.data));
+      Axios.get("/api/appointments").then(res => setAppointments(res.data));
     });
   };
 
