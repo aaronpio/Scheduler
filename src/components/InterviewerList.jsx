@@ -13,7 +13,7 @@ const InterviewerList = props => {
       name={interviewer.name}
       avatar={interviewer.avatar}
       selected={interviewer.id === props.interviewer}
-      setInterviewer={() => setInterviewer(interviewer.id)}
+      setInterviewer={() => setInterviewer(interviewer.id || "")}
     />
   ));
 
