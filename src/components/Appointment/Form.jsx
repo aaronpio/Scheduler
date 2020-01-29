@@ -4,14 +4,6 @@ import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
 
 const Form = props => {
-  // const {
-  //   name,
-  //   interviewers,
-  //   interviewer,
-  //   onSave,
-  //   onCancel,
-  // } = props;
-
   const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
@@ -60,6 +52,7 @@ const Form = props => {
           interviewers={props.interviewers}
           interviewer={interviewer}
           setInterviewer={setInterviewer}
+          setError={setError}
         />
       </section>
       <section className="appointment__card-right">
