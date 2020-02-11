@@ -22,6 +22,15 @@ const DayListItem = ({ name, spots, selected, setDay }) => {
       case 2:
         spots = "2 spots remaining";
         break;
+      case 3:
+        spots = "3 spots remaining";
+        break;
+      case 4:
+        spots = "4 spots remaining";
+        break;
+      case 5:
+        spots = "5 spots remaining";
+        break;
     }
     return spots;
   };
