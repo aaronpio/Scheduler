@@ -5,7 +5,6 @@ import {
   cleanup,
   waitForElement,
   fireEvent,
-  prettyDOM,
   getByText,
   getAllByTestId,
   getByPlaceholderText,
@@ -84,7 +83,7 @@ describe("Application", () => {
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
   });
 
-  it.skip("loads data, edits an interview and keeps spots the same for Monday", async () => {
+  xit("loads data, edits an interview and keeps spots the same for Monday", async () => {
     const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
